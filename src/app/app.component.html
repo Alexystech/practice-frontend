@@ -1,0 +1,49 @@
+<!-- Formulario de registro para los usuarios -->
+<div class="user-form-class">
+    <H2>Crear usuario</H2>
+    <form [formGroup]="userForm" (ngSubmit)="guardar()">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control" required="required">
+        </div>
+        <div class="form-group">
+            <label>Numero</label>
+            <input type="number" formControlName="numero" class="form-control" placeholder="10 digitos del numero" required="required">
+        </div>
+        <div class="form-group">
+            <label>Correo</label>
+            <input type="email" formControlName="correo" class="form-control" placeholder="example@gmail.com" required="required">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Registrar</button>
+    </form>
+</div>
+
+<!-- Tabla donde se muestran todos los usuarios registrados y 
+    permite actualizar y eliminarlos -->
+<div class="user-table">
+    <table class="table table-hover" >
+        <thead>
+            <tr>
+                <th scope="col">Clave</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of users">
+                <th scope="row">{{item.clave}}</th>
+                <td>{{item.nombre}}</td>
+                <td>{{item.numero}}</td>
+                <td>{{item.correo}}</td>
+                <td>
+                    <button class="btn btn-warning" (click)="actualizar(item)">Actualiar</button>
+                    <button class="btn btn-danger" (click)="eliminar(item)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<router-outlet></router-outlet>

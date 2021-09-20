@@ -1,0 +1,24 @@
+.user-form-class {
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 2%;
+}
+
+.user-form-class label {
+    padding-top: 5px;
+}
+
+.user-form-class button {
+    margin-top: 2%;
+    width: 100%;
+}
+
+.form-row .form-group {
+    display: inline-block;
+}
+
+.user-table {
+    padding-top: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
